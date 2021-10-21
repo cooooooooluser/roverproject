@@ -5,8 +5,13 @@ var rover_width = 100;
 var roverX = 80;
 var roverY = 120;
 
+marsImageArray=["mars_1.jpg", "mars_2.jpg","mars_3.jpg", "mars_4.jpg", "mars.jpg"];
+randomNumber= Math.floor(Math.random()*5); 
+
 var rover = "rover.png";
-var land = "mars.jpg";
+var land = marsImageArray[randomNumber];
+
+
 
 function add() {
     marsImage = new Image();
@@ -71,5 +76,50 @@ console.log(keyPressed);
             console.log("right");
         }
 
+        if(keyPressed=="69"||keyPressed=="101"){
+            rotate_right();
+            console.log("rotate_right")
+        }
+
+
+
 
 }
+
+function rotate_right(){
+    ctx.roverImage.style.transform=rotate(90);
+}
+
+function up(){
+    if(roverY>=0){
+roverY=roverY-10;
+uploadmars();
+uploadrover();
+    }
+}
+
+function down(){
+    if(roverY<=660){
+roverY=roverY+10;
+uploadmars();
+uploadrover();
+    }
+}
+
+function right(){
+    if(roverX<=880){
+roverX=roverX+10;
+uploadmars();
+uploadrover();
+    }
+}
+
+function left(){
+    if(roverX>=0){
+roverX=roverX-10;
+uploadmars();
+uploadrover();
+    }
+}
+
+
